@@ -6,7 +6,7 @@
     <Authors>Zaron Thompson</Authors>
     <Company>Zaron Thompson</Company>
     <Product>Echo Buttons</Product>
-    <Description>C# API for Echo Buttons paired on Windows</Description>
+    <Description>C# API for Echo Buttons on Windows</Description>
     <Copyright>Zaron Thompson</Copyright>
     <PackageLicenseUrl>https://raw.githubusercontent.com/zaront/EchoButtons/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/zaront/EchoButtons</PackageProjectUrl>

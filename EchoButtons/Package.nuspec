@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<id>EchoButtons</id>
+		<version>$version$</version>
+		<title>EchoButtons</title>
+		<authors>Zaron Thompson</authors>
+		<owners>Zaron Thompson</owners>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>C# API for Echo Buttons on Windows</description>
+		<copyright>Zaron Thompson</copyright>
+		<projectUrl>https://github.com/zaront/EchoButtons</projectUrl>
+		<license type="expression">MIT</license>
+		<tags>Amazon Echo Buttons API SDK c#</tags>
+		<repository type="git" url="https://github.com/zaront/EchoButtons" />
+		<iconUrl>https://raw.githubusercontent.com/zaront/EchoButtons/master/icon.png</iconUrl>
+		<dependencies>
+			<group targetFramework=".NETStandard2.0">
+				<dependency id="32feet.NET" version="3.5.0" exclude="Build,Analyzers" />
+				<dependency id="System.Configuration.ConfigurationManager" version="4.5.0" exclude="Build,Analyzers" />
+			</group>
+		</dependencies>
+	</metadata>
+</package>
