@@ -13,6 +13,8 @@
     <RepositoryUrl>https://github.com/zaront/EchoButtons</RepositoryUrl>
     <PackageTags>Amazon Echo Buttons API SDK</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/zaront/EchoButtons/master/icon.png</PackageIconUrl>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

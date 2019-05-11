@@ -43,7 +43,87 @@ namespace EchoButtons
 
 		public void StartListening()
 		{
-			Reconnect().ContinueWith(i => i);
+			//Reconnect().ContinueWith(i => i);
+
+			Task.Run(ReadButtonData);
+		}
+
+		async Task ReadButtonData()
+		{
+			while (_reconnect)
+			{
+				try
+				{
+					//connect
+					do
+					{
+						try
+						{
+							_client.Connect(_device.DeviceAddress, _device.InstalledServices[3]);
+
+							//send events
+							Connected?.Invoke(this, new ButtonEventArgs() { ButtonName = Name });
+						}
+						catch (Exception)
+						{
+							await Task.Delay(1000);
+						}
+					} while (_reconnect && !_client.Connected);
+
+					//read stream
+					if (_reconnect && _client.Connected)
+					{
+						_stream = _client.GetStream();
+						while (_reconnect)
+						{
+							var len = await _stream.ReadAsync(_buffer, 0, _buffer.Length);
+
+							//connection closed
+							if (len == 0)
+							{
+								//send events
+								Disconnected?.Invoke(this, new ButtonEventArgs() { ButtonName = Name });
+
+								//start listening again
+								if (_reconnect)
+								{
+									_client.Close();
+									_client.Dispose();
+									_client = new BluetoothClient(); //create a new client - for some reason its not reusable at this point
+									break;
+								}
+							}
+
+							//received data
+							else
+							{
+								var messages = _parser.GetMessage(_buffer, len);
+								if (messages != null)
+								{
+									foreach (var message in messages)
+									{
+										if (message.Payload[1] == 1 && message.Payload[25] == 2)
+										{
+											//set events
+											Pressed?.Invoke(this, new ButtonEventArgs() { ButtonName = Name });
+										}
+
+										if (message.Payload[1] == 1 && message.Payload[25] == 3)
+										{
+											//set events
+											Released?.Invoke(this, new ButtonEventArgs() { ButtonName = Name });
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				catch (Exception)
+				{
+
+				}
+			}
 		}
 
 		async Task Reconnect()
@@ -52,7 +132,7 @@ namespace EchoButtons
 			{
 				_client.BeginConnect(_device.DeviceAddress, _device.InstalledServices[3], Connecting, null);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				//try again
 				if (_reconnect)
@@ -67,7 +147,11 @@ namespace EchoButtons
 		{
 			if (result.IsCompleted)
 			{
-				_client.EndConnect(result);
+				try
+				{
+					_client.EndConnect(result);
+				}
+				catch (Exception) { }
 				if (_client.Connected)
 				{
 					//send events
