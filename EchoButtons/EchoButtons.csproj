@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Zaron Thompson</Authors>
+    <Company>Zaron Thompson</Company>
+    <Product>Echo Buttons</Product>
+    <Description>C# API for Echo Buttons paired on Windows</Description>
+    <Copyright>Zaron Thompson</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/zaront/EchoButtons</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zaront/EchoButtons</RepositoryUrl>
+    <PackageTags>Amazon Echo Buttons API SDK</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="32feet.NET" Version="3.5.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+  </ItemGroup>
+
+</Project>

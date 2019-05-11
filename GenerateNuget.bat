@@ -1,0 +1,1 @@
+nuget pack EchoButtons -IncludeReferencedProjects -Build -Properties Configuration=Release
