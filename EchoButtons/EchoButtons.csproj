@@ -8,10 +8,11 @@
     <Product>Echo Buttons</Product>
     <Description>C# API for Echo Buttons paired on Windows</Description>
     <Copyright>Zaron Thompson</Copyright>
-    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/zaront/EchoButtons/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/zaront/EchoButtons</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zaront/EchoButtons</RepositoryUrl>
     <PackageTags>Amazon Echo Buttons API SDK</PackageTags>
+    <PackageIconUrl>https://raw.githubusercontent.com/zaront/EchoButtons/master/icon.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
